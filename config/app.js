@@ -17,7 +17,7 @@ const configs = (app) =>{
 }
 
 const routes = (app)=> {
-    
+    app.use('/')
 }
 
 export const initServer = async () => {
