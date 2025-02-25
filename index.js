@@ -1,6 +1,6 @@
-import { initServer } from "./config/app"
+import { initServer } from "./config/app.js";
 import { config } from "dotenv"
-import { connect } from "mongoose"
+import { connect } from "./config/mongo.js";
 
 config()
 initServer()
