@@ -7,6 +7,9 @@ import cors from 'cors'
 
 import { limiter } from '../middlewares/rate.limit.js'
 import authRoutes from '../src/auth/auth.routes.js'
+import enterpriseRoutes from '../src/enterprise/enterprise.routes.js'
+import categoryRoutes from '../src/category/category.routes.js'
+import reportRoutes from '../src/report/report.routes.js'
 
 const configs = (app) =>{
     app.use(express.json())
@@ -19,6 +22,9 @@ const configs = (app) =>{
 
 const routes = (app)=> {
     app.use('/v1/auth', authRoutes)
+    app.use('/v1/enterprise', enterpriseRoutes)
+    app.use('/v1/category', categoryRoutes)
+    app.use('/v1/report', reportRoutes)
 }
 
 export const initServer = async () => {
