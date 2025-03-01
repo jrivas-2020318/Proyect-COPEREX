@@ -1,20 +1,24 @@
 import { Router } from 'express'
 import {
-    getCompanies,
     getCompany,
     registerCompany,
-    updateCompany
-} from './companyController.js'
-import { validateJwt } from '../../middlewares/validate.jwt.js'
+    editCompany,
+    getCompanyYearExperience,
+    getCompanyAsc,
+    getCompanyDesc
+} from './enterprise.controller.js'
+import { validateJwt, isAdmin } from '../../middlewares/validate.jwt.js'
+import { enterpriseValidator, updateEnterpriseValidator } from '../../helpers/validators.js'
 
-const api = Router();
+const api = Router()
 
-api.get('/', [validateJwt], getCompanies);
+api.get('/', [validateJwt], getCompany)
+api.get('/getCompanyYearExperience', [validateJwt], getCompanyYearExperience)
+api.get('/getCompanyDesc', [validateJwt], getCompanyDesc)
+api.get('/getCompanyAsc', [validateJwt], getCompanyAsc)
 
-api.get('/:id', [validateJwt], getCompany);
+api.post('/createCompany', [validateJwt, isAdmin, enterpriseValidator], registerCompany)
 
-api.post('/createCompany', [validateJwt, isAdmin, createCompanyValidator], registerCompany);
-
-api.put('/:id', [validateJwt, isAdmin, updateCompanyValidator], updateCompany);
+api.put('/:id', [validateJwt, isAdmin, updateEnterpriseValidator], editCompany)
 
 export default api;

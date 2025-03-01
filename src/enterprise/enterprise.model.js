@@ -1,22 +1,25 @@
-import {Shema, model} from 'mongoose'
+import {Schema, model} from 'mongoose'
 
-const companySchema = new mongoose.Schema({
+const companySchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        lowercase: true
     },
     impactLevel: {
         type: String,
-        required: true,
-        enum: ['Low', 'Medium', 'High']
+        required: [true, "Impact level is required"],
+        enum: ['Low', 'Medium', 'High'],
+        lowercase: true
     },
-    yearsOfExperience: {
+    yearsExperience: {
         type: Number,
         required: true
     },
-    businessCategory: {
-        type: String,
-        required: true
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required: [true, "Category is required"]
     },
 
 })
