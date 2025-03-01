@@ -14,7 +14,7 @@ export const register = async(req, res)=>{
             })
         }
         user.password = await encrypt(user.password)
-        user.role = 'CLIENT'
+        user.role = 'ADMIN'
         await user.save()
         return res.send({message: `Registered successfully, can be logged with username: ${user.username}`})
     }catch(err){

@@ -23,6 +23,12 @@ const userSchema = new Schema(
             maxLegnth: [15, "Can't be more than 15 characters"],
             minLegnth: [6, "Can't be less than 6 characters"],
         },
+        phone: {
+            type: String,
+            required: [true, "Phone is required"],
+            maxLegnth: [15, "Can't be more than 15 characters"],
+            minLegnth: [8, "Can't be less than 10 characters"],
+        },
         email:{
             type: String,
             isMail: true,
