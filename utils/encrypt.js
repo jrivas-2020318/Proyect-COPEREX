@@ -1,6 +1,6 @@
 'use strict'
 
-import {hash, verify} from 'argon2'
+import { hash, verify } from 'argon2';
 
 export const encrypt = async(password)=>{
     try{
