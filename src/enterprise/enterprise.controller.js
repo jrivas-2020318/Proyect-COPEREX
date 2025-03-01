@@ -32,18 +32,16 @@ export const getCompany = async (req, res) => {
 
 export const getCompanyYearExperience = async (req, res) => {
   try {
-    const { limit = 20, skip = 0, sortOrder = 'asc' } = req.query;  // 'sortOrder' debe venir de los parámetros de la consulta
-    const { yearsInBusiness } = req.body;
+    const { limit = 20, skip = 0, sortOrder = 'asc' } = req.query
+    const { yearsInBusiness } = req.body
 
-    // Determinar el valor de sortOption: si 'desc' usamos -1, si no usamos 1 para ascendente
     const sortOption = sortOrder === 'desc' ? -1 : 1;
 
-    // Buscar compañías y ordenarlas por 'yearsExperience'
     const companies = await Company.find({ yearsInBusiness: yearsInBusiness })
       .populate({ path: "category", select: "title description" })
       .skip(parseInt(skip))
       .limit(parseInt(limit))
-      .sort({ yearsExperience: sortOption });  // Asegúrate de ordenar por 'yearsExperience'
+      .sort({ yearsExperience: sortOption })
 
     return res.send({
       success: true,
@@ -56,9 +54,9 @@ export const getCompanyYearExperience = async (req, res) => {
     return res.status(500).send({
       success: false,
       message: "General error"
-    });
+    })
   }
-};
+}
 
 
 
