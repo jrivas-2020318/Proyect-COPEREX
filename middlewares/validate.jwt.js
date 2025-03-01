@@ -2,7 +2,7 @@
 
 import jwt from "jsonwebtoken"
 
-export const validateJWT = async(req, res, next)=>{
+export const validateJwt = async(req, res, next)=>{
     try{
         let secretKey = process.env.SECRET_KEY
         let {authorization} = req.headers
@@ -19,13 +19,6 @@ export const validateJWT = async(req, res, next)=>{
 export const isAdmin = (req, res, next) => {
     if (req.user.role !== 'ADMIN'){
         return res.status(403).send({message: 'Access denied, insufficient privileges'})
-    }
-    next()
-}
-
-export const isClient = (req, res, next) =>{
-    if(req.user.role !== 'CLIENT'){
-        return res.status(403).send({message: 'Access denied, only allwed for clients'})
     }
     next()
 }
