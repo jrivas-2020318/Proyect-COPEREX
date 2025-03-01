@@ -1,5 +1,6 @@
 import { body } from "express-validator";
 import { validateErrors } from "./validate.error.js"
+import { update } from "../src/category/category.controller.js";
 
 export const loginValidator = [
     body('username','Username cannot be empty').optional().toLowerCase(),
@@ -20,3 +21,28 @@ export const registerValidator = [
     body('phone', 'Phone cannot be empty').notEmpty().isMobilePhone(),
     validateErrors
 ]
+
+export const categoryValidator = [
+    body('name', 'Name cannot be empty').notEmpty(),
+    body('description', 'Description cannot be empty').notEmpty(),
+    validateErrors
+]
+
+export const enterpriseValidator = [
+    body('name', 'Name cannot be empty').notEmpty(),
+    body('impactLevel', 'Impact level cannot be empty').notEmpty(),
+    body('yearsExperience', 'Years of experience cannot be empty').notEmpty().isInt(),
+    body('category', 'Category cannot be empty').notEmpty().isMongoId(),
+    validateErrors 
+]
+
+export const updateEnterpriseValidator = [
+    body('name', 'Name cannot be empty').optional(),
+    body('impactLevel', 'Impact level cannot be empty').optional(),
+    body('yearsExperience', 'Years of experience cannot be empty').optional().isInt(),
+    body('category', 'Category cannot be empty').optional().isMongoId(),
+    validateErrors
+]
+
+
+
