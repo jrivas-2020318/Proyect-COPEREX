@@ -38,7 +38,7 @@ export const generateExcelReport = async () => {
         console.error('Error generating Excel report:', error)
         throw new Error("Failed to generate Excel report")
     }
-};
+}
 
 export const getReport = async (req, res) => {
     try {
@@ -47,11 +47,11 @@ export const getReport = async (req, res) => {
             success: true,
             message: `File has been successfully generated: ${path.basename(filePath)}`,
             filePath: filePath
-        });
+        })
     } catch (error) {
         res.status(500).send({
             success: false,
             message: "Failed to generate Excel report"
-        });
+        })
     }
-};
+}

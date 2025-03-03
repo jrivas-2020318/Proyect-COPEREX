@@ -10,7 +10,6 @@ const companySchema = new Schema({
         type: String,
         required: [true, "Impact level is required"],
         enum: ['Low', 'Medium', 'High'],
-        lowercase: true
     },
     yearsExperience: {
         type: Number,

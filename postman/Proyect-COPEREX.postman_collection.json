@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "495ebcfc-cc8e-4d16-9fd9-ee93632cfdcb",
+		"name": "Proyect-COPEREX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37951878"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Jose Julian",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Rivas Aleman",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jrivas",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "52232361",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jrivas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Josejulian11@11",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Diego Andres",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lastname",
+									"value": "Reyes Revolorio",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "dreyes",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "42151515",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "dreyes-2020318@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Diegoreyes11@11",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\",data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "jrivas",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Josejulian11@11",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "J0s3Jul1@n11",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Alimentos ",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Categoria para la gestion de alimentos",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Desarrollo",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Para la gestion de empresas de programacion",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/category/createCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"category",
+								"createCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Compny",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Procasa",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "Medium",
+									"type": "text"
+								},
+								{
+									"key": "yearsExperience",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c50ec70d0a11f23f410bd5",
+									"type": "text"
+								},
+								{
+									"key": "name ",
+									"value": "Facebook",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "impactLevel",
+									"value": "High",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "yearExperience",
+									"value": "13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/enterprise/createCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"enterprise",
+								"createCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Desc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/enterprise/getCompanyDesc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"enterprise",
+								"getCompanyDesc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Asc",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3700/v1/enterprise/getCompanyAsc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"enterprise",
+								"getCompanyAsc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Year",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "sortOrden",
+									"value": "desc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/enterprise/getCompanyYearExperience?sortOrder=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"enterprise",
+								"getCompanyYearExperience"
+							],
+							"query": [
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Google",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "High",
+									"type": "text"
+								},
+								{
+									"key": "yearsExperience",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67be7e6e547512e7bcd098f7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3700/v1/enterprise/67be500415b3c83a6423f21b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"enterprise",
+								"67be500415b3c83a6423f21b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "report",
+			"item": [
+				{
+					"name": "Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3700/v1/report/download-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3700",
+							"path": [
+								"v1",
+								"report",
+								"download-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
