@@ -401,7 +401,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3700/v1/enterprise/getCompanyYearExperience?sortOrder=asc",
+							"raw": "http://localhost:3700/v1/enterprise/getCompanyYearExperience?sortOrder=desc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -415,7 +415,12 @@
 							"query": [
 								{
 									"key": "sortOrder",
-									"value": "asc"
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
 								}
 							]
 						}
